@@ -1,7 +1,9 @@
 """
 Credits: Gabriel Onyedika Nnamoko 24/06/2022 4.31pm
-
 This is a basic betting app. I have not modified the logic of generating odds to my taste. I will work on that!
+
+Working Principle: It first asks the user to deposit any desired amount of money. Once the user deposits, the betting starts (and continues until the amount
+the user entered has been exhausted, assuming they keep losing, after which it prompts them to deposit again, and the process continues).
 """
 
 import random
