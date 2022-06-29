@@ -56,6 +56,7 @@ def bet_controller():
         print("\nOr enter a custom value to bet")
         user_input = int(input("\nSelect a number (or enter a custom value to place bet): "))
         try:
+            user_input = int(user_input)
             user_amount = bet_categories[user_input-1]
         except:
             user_amount = user_input
@@ -69,7 +70,10 @@ def bet_controller():
                         continue
                 if checker >= 1:
                     user_input = int(input("\n\tEnter a lower amount: "))
-                    user_amount = bet_categories[user_input - 1]
+                    try:
+                        user_amount = bet_categories[user_input - 1]
+                    except:
+                        user_amount = user_input
                 else:
                     print("\nYour balance is too low! Deposit!")
                     deposit_again()
@@ -86,6 +90,7 @@ def bet_controller():
                 print("\nCurrent odd matches your prediction!\n")
                 user_balance = staked_amount * odd_counter
                 user_current_balance = amount_user_deposited + user_balance
+                company_balance -= user_balance
                 print(f"\nCongratulations! ${user_balance:,} has been added to your account!\n\nYour new balance is ${user_current_balance:,}")
                 print(f"\nThe winning odd was {odd}X")
                 break
